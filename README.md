@@ -8,6 +8,8 @@ Caption Generation is a challenging task in Artificial Intelligience where a tex
 The model we are using is based on attention based framework which will allow us to focus on selective regions while generating description much like the way humans perceive the visual world.
 
 <img src="model.png">
+<br>
+<b>Dataset used</b>:The model is trained on <a href="http://cocodataset.org/#home">MS-COCO dataset </a> which is used for benchmarking object detection, segmentation and captioning datasets 
 
 Flow of the process:
 1. Loading of the dataset
