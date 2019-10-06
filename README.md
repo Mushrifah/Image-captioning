@@ -19,6 +19,18 @@ Flow of the process:
 7. Training the model 
 8. Test the model
 
+# Results
+
+
+
+
+The unseen image given was:<br><br>
+<img src="2.jpeg" width=300 height=360>
+<br><br>
+The results obtained on the model with unseen image is as shown below:
+<br><br>
+<img src="result.PNG">
+
 
 
 
