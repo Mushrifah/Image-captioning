@@ -5,11 +5,12 @@ A deep learning based android application which takes an image as a input and pr
 Caption Generation is a challenging task in Artificial Intelligience where a textual description of the image must be generated. 
 
 # Model architecture
-The model we are using is based on attention based framework which will allow us to focus on selective regions while generating description much like the way humans perceive the visual world.
+The model we are using is based on attention based CNN-RNN network which will allow us to focus on selective regions while generating description much like the way humans perceive the visual world.
 
 <img src="model.png">
 <br>
 <b>Dataset used</b>:The model is trained on <a href="http://cocodataset.org/#home">MS-COCO dataset </a> which is used for benchmarking object detection, segmentation and captioning datasets 
+<br>
 
 Flow of the process:
 1. Loading of the dataset
