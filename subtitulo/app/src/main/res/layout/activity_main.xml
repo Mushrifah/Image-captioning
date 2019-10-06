@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background2"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="643dp"
+        android:id="@+id/slideViewPager"/>
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/slideViewPager"
+        android:id="@+id/dotsLayout"
+        android:padding="15dp"
+        android:layout_centerHorizontal="true"
+
+        android:orientation="horizontal">
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/prev"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="24dp"
+        android:layout_toLeftOf="@+id/dotsLayout"
+        android:backgroundTint="@color/transparent"
+        android:text="PREV"
+        android:textColor="#000"
+        android:textSize="10sp"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="24dp"
+        android:layout_toRightOf="@+id/dotsLayout"
+        android:backgroundTint="@color/transparent"
+        android:text="NEXT"
+        android:textColor="#000"
+        android:textSize="10sp" />
+
+</RelativeLayout>
