@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 import static android.graphics.Color.WHITE;
+import static java.lang.Thread.sleep;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
     private Button next;
     private Button prev;
     private  int mCurrentPage;
+    String name;
+    String responser;
+    TextToSpeech t1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +46,41 @@ public class MainActivity extends AppCompatActivity {
         prev = findViewById(R.id.prev);
         mSlideViewPager.addOnPageChangeListener(viewListener);
 
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("Name");
+
+
+        responser = "HELLO THERE " + name + ". WELCOME TO SUB-TEA-TWO-LOW";
+
+        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.ENGLISH);
+                }
+            }
+        });
+        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.ENGLISH);
+                }
+            }
+        });
+
+
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(mCurrentPage == 2){
+                    t1.speak(responser, TextToSpeech.QUEUE_FLUSH, null,null);
+                    try {
+                        sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     Intent intent = new Intent(MainActivity.this,Image.class);
                     startActivity(intent);
                 }
@@ -99,7 +138,6 @@ public class MainActivity extends AppCompatActivity {
                     next.setEnabled(true);
                     prev.setEnabled(false);
                     prev.setVisibility(View.INVISIBLE);
-
                     next.setText("Next");
                     prev.setText("");
 
@@ -108,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
                     next.setEnabled(true);
                     prev.setEnabled(true);
                     prev.setVisibility(View.VISIBLE);
-
                     next.setText("Finish");
                     prev.setText("Back");
 
@@ -120,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
                     next.setEnabled(true);
                     prev.setEnabled(true);
                     prev.setVisibility(View.VISIBLE);
-
                     next.setText("Next");
                     prev.setText("Back");
 
@@ -132,5 +168,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
+
+    public void onPause(){
+        if(t1 !=null){
+            t1.stop();
+            t1.shutdown();
+        }
+        super.onPause();
+    }
 }
 

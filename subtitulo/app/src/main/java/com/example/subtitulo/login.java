@@ -73,7 +73,10 @@ public class login extends AppCompatActivity {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         if (account != null) {
 
-            startActivity(new Intent(login.this, Image.class));
+            String personName = account.getDisplayName();
+            Intent intent = new Intent(login.this, Image.class);
+            intent.putExtra("Name",personName);
+            startActivity(intent);
 
         }
         //Intent intent = new Intent(MainActivity.this,Page1.class);
@@ -102,7 +105,10 @@ public class login extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             // Signed in successfully, show authenticated UI.
-            startActivity(new Intent(login.this, MainActivity.class));
+            String personName = account.getDisplayName();
+            Intent intent = new Intent(login.this, MainActivity.class);
+            intent.putExtra("Name",personName);
+            startActivity(intent);
 
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
@@ -153,7 +159,9 @@ public class login extends AppCompatActivity {
             //mStatusTextView.setText(getString(R.string.signed_in_fmt, account.getDisplayName()));
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            Intent intent = new Intent(login.this, Image.class);
+            String personName = account.getDisplayName();
+            Intent intent = new Intent(login.this, MainActivity.class);
+            intent.putExtra("Name",personName);
             startActivity(intent);
 
             //findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
