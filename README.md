@@ -20,7 +20,10 @@ Flow of the process:
 8. Test the model
 
 # Results
-
+The results on validation dataset were:<br><br>
+<img src="val.jpeg">
+<br><br>
+<img src="val-result.jpeg">
 
 
 
