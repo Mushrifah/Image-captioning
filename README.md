@@ -2,6 +2,8 @@
 A deep learning based android application which takes an image as a input and provides automatic caption for the following image.
 Caption Generation is a challenging task in Artificial Intelligience where a textual description of the image must be generated.
 
+<a href="https://www.youtube.com/watch?v=eP2SESX0ZiM">Link to the demo<a/>
+
 # Model architecture
 The model we are using is based on attention based CNN-RNN network which will allow us to focus on selective regions while generating description much like the way humans perceive the visual world.
 
